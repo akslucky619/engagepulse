@@ -43,6 +43,19 @@ body > #root > div {
   background-color: #000;
 }
 
-.btn-clr-dark{
-  background: #666
+.btn-clr-dark button {
+  background: #666;
+  color: white;
+}
+
+.btn-txt-dark{
+  background: white
+}
+
+.input-bgc-dark {
+  background: white;
+}
+
+.input-txt-dark {
+  color: black;
 }

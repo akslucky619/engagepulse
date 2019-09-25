@@ -43,7 +43,7 @@ class Buttons extends React.Component {
       : buttons;
 
     return (
-      <div className={"buttons-container " + THEME.btn_clr}r>
+      <div className={`${"buttons-container"} + ${THEME.btn_clr} + ${THEME.btn_txt}`}>
         {displayBtns.map((item, key) => {
           if (item === "Clear") {
             return (

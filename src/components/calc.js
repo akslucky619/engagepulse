@@ -87,15 +87,6 @@ class Calc extends React.Component {
     return result;
   };
 
-  //   flip = () => {
-  //     let result = Number(this.state.currentVal) * -1;
-  //     return result;
-  //   };
-
-  //   root = () => {
-  //     let result = Number(this.state.currentVal) * Number(this.state.currentVal);
-  //     return result;
-  //   };
 
   // adds the chosen operation in the stack
   eval = e => {
@@ -203,7 +194,7 @@ class Calc extends React.Component {
 
     return (
       <>
-        <div className={"App " + THEME.bgc}>
+        <div className={"App" }>
           <Input initVal={display} display={display} />
 
           <Buttons

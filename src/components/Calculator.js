@@ -87,7 +87,6 @@ class Calc extends React.Component {
     return result;
   };
 
-
   // adds the chosen operation in the stack
   eval = e => {
     let { operation, isUserInput, currentVal, prevVal } = this.state;
@@ -194,7 +193,7 @@ class Calc extends React.Component {
 
     return (
       <>
-        <div className={"App" }>
+        <div className={"App"}>
           <Input initVal={display} display={display} />
 
           <Buttons
@@ -212,10 +211,22 @@ class Calc extends React.Component {
             handleRoot={this.scienceEval}
           />
         </div>
-        <div>
-          <button onClick={this.changeToScience}>Scientific</button>
-          <button onClick={this.darkMode}>Dark Mode</button>
-          <button onClick={this.lightMode}>Light Mode</button>
+        <div className="allign">
+          <div>
+            <button className="select" onClick={this.changeToScience}>
+              Scientific
+            </button>
+          </div>
+          <div>
+            <button className="select" onClick={this.darkMode}>
+              Dark Mode
+            </button>
+          </div>
+          <div>
+            <button className="select" onClick={this.lightMode}>
+              Light Mode
+            </button>
+          </div>
         </div>
       </>
     );

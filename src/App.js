@@ -6,7 +6,7 @@ import { connect } from "react-redux";
 
 import "./App.css";
 
-import Calc from "./components/calc";
+import Calc from "./components/Calculator";
 
 class App extends React.Component {
   render() {

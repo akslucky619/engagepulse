@@ -48,8 +48,8 @@ body > #root > div {
   color: white;
 }
 
-.btn-txt-dark{
-  background: white
+.btn-txt-dark {
+  background: white;
 }
 
 .input-bgc-dark {
@@ -58,4 +58,15 @@ body > #root > div {
 
 .input-txt-dark {
   color: black;
+}
+
+.select {
+  background: white;
+  height: 30px;
+  width: 20%;
+}
+
+.allign {
+  padding-left: 39rem;
+  padding-top: 3rem;
 }

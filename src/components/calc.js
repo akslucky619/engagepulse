@@ -1,4 +1,6 @@
 import React from "react";
+import light_theme from "../theme_confg/light_theme.js";
+import dark_theme from "../theme_confg/dark_theme.js";
 
 import "../App.css";
 
@@ -10,6 +12,8 @@ class Calc extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      isDark: false,
+
       prev: 0, // previous input/calculated value
       currentVal: 0, // currentVal input value
       prevVal: 0,
@@ -188,9 +192,11 @@ class Calc extends React.Component {
   render() {
     let { result, display } = this.state;
 
+    const THEME = this.state.isDark ? dark_theme : light_theme;
+
     return (
       <>
-        <div className="App">
+        <div className={"App " + THEME.bgc}>
           <Input initVal={display} display={display} />
 
           <Buttons
@@ -207,7 +213,6 @@ class Calc extends React.Component {
             handleSquare={this.scienceEval}
             handleRoot={this.scienceEval}
           />
-
         </div>
         <div>
           <button onClick={this.changeToScience}>Scientific</button>

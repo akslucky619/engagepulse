@@ -7,7 +7,7 @@ import Calc from "./components/calc";
 class App extends React.Component {
   render() {
     return (
-      <div>
+      <div className={"app"}>
         <div className="container">
           <Calc />
         </div>

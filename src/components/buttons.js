@@ -1,5 +1,5 @@
 import React from "react";
-import "./button.css";
+import "../App.css";
 
 class Buttons extends React.Component {
   constructor(props) {
@@ -23,16 +23,19 @@ class Buttons extends React.Component {
         "0",
         "=",
         "/"
-      ]
+      ],
+      scnButtons: ["-/+", "√", "c^2"]
     };
   }
-  
 
   render() {
-    const { buttons } = this.state;
+    const { buttons, scnButtons } = this.state;
+
+    let displayBtns = this.props.isScientific ? buttons.concat(scnButtons) : buttons;
+
     return (
-      <div className="btn-container">
-        {buttons.map((item, key) => {
+      <div className="buttons-container">
+        {displayBtns.map((item, key) => {
           if (item === "Clear") {
             return (
               <button onClick={() => this.props.handleClear()} key={key}>
@@ -41,37 +44,89 @@ class Buttons extends React.Component {
             );
           } else if (item === "=") {
             return (
-              <button onClick={()=>this.props.handleEval()} key={key}>
+              <button
+                name="equalTo"
+                onClick={e => this.props.handleEval(e)}
+                key={key}
+              >
                 {item}
               </button>
             );
           } else if (item === "+") {
             return (
-              <button onClick={() => this.props.handleAdd()} key={key}>
+              <button
+                name="plus"
+                onClick={e => {
+                  this.props.handleAdd(e);
+                }}
+                key={key}
+              >
                 {item}
               </button>
             );
-          }else if (item === "-") {
+          } else if (item === "-") {
             return (
-              <button onClick={() => this.props.handleSub()} key={key}>
+              <button
+                name="minus"
+                onClick={e => this.props.handleSub(e)}
+                key={key}
+              >
                 {item}
               </button>
             );
-          }else if (item === "*") {
+          } else if (item === "*") {
             return (
-              <button onClick={() => this.props.handleMult()} key={key}>
+              <button
+                name="multiply"
+                onClick={e => this.props.handleMult(e)}
+                key={key}
+              >
                 {item}
               </button>
             );
-          }else if (item === "/") {
+          } else if (item === "/") {
             return (
-              <button onClick={() => this.props.handleDiv()} key={key}>
+              <button
+                name="divide"
+                onClick={e => this.props.handleDiv(e)}
+                key={key}
+              >
+                {item}
+              </button>
+            );
+          } else if (item === "-/+") {
+            return (
+              <button
+                name="reverse"
+                onClick={e => this.props.handleRev(e)}
+                key={key}
+              >
+                {item}
+              </button>
+            );
+          } else if (item === "√") {
+            return (
+              <button
+                name="squareRoot"
+                onClick={e => this.props.handleRoot(e)}
+                key={key}
+              >
+                {item}
+              </button>
+            );
+          } else if (item === "c^2") {
+            return (
+              <button
+                name="square"
+                onClick={e => this.props.handleSquare(e)}
+                key={key}
+              >
                 {item}
               </button>
             );
           } else {
             return (
-              <button onClick={() => this.props.handleClick(item)} key={key}>
+              <button onClick={() => this.props.handleInput(item)} key={key}>
                 {item}
               </button>
             );

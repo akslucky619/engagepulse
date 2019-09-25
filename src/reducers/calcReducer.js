@@ -1,33 +1,30 @@
-// const initialState = {
-//   value: 0,
-//   btns: [
-//     "1",
-//     "2",
-//     "3",
-//     "+",
-//     "4",
-//     "5",
-//     "6",
-//     "-",
-//     "7",
-//     "8",
-//     "9",
-//     "*",
-//     "Clear",
-//     "0",
-//     "=",
-//     "/"
-//   ]
-// };
+const initialState = {
+  input: "",
+  display: 0,
+  prevNumber: "",
+  currentNumber: "",
+  operator: "",
+  total: "" 
+};
 
-// const calReducer = (state = initialState, action) => {
-//   switch (action.type) {
-//     case "CLEAR":
-//       return {
-//         ...state,
-//         value: 0
-//       };
-//   }
-// };
+const calReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case "CLEAR":
+      return {
+        ...state,
+        input: "",
+        display: 0,
+        prevNumber: "",
+        currentNumber: "",
+        operator: "",
+        total: ""
+      };
+      case "ADDINPUT":
+          return{
+              ...state,
+              input: state.input + action.val
+          }
+  }
+};
 
-// export default calReducer;
+export default calReducer;

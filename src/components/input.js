@@ -3,8 +3,8 @@ import React from "react";
 class Input extends React.Component {
   render() {
     return (
-      <div className="input">
-         {this.props.initVal == "" ? this.props.display : this.props.initVal}
+      <div className="value-container">
+         {this.props.initVal === "" ? Number(this.props.display) : Number(this.props.initVal)}
       </div>
     );
   }

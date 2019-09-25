@@ -3,4 +3,4 @@ import calReducer from "./reducers/calcReducer";
 
 const store = createStore(calReducer);
 
-
+export default store;

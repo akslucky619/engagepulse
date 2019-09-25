@@ -2,13 +2,15 @@ import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
 
-import Calculator from "./components/calculator";
+import Calc from "./components/calc";
 
 class App extends React.Component {
   render() {
     return (
-      <div className="container">
-        <Calculator />
+      <div>
+        <div className="container">
+          <Calc />
+        </div>
       </div>
     );
   }

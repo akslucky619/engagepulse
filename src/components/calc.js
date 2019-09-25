@@ -6,14 +6,13 @@ import "../App.css";
 
 import Buttons from "./buttons";
 import Input from "./input";
-import { reverse } from "dns";
+
+import { connect } from "react-redux";
 
 class Calc extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isDark: false,
-
       prev: 0, // previous input/calculated value
       currentVal: 0, // currentVal input value
       prevVal: 0,
@@ -35,6 +34,14 @@ class Calc extends React.Component {
         isScientific: false
       });
     }
+  };
+
+  darkMode = () => {
+    this.props.dispatch({ type: "DARK_MODE" });
+  };
+
+  lightMode = () => {
+    this.props.dispatch({ type: "LIGHT_MODE" });
   };
 
   updateCurrent = val => {
@@ -80,15 +87,15 @@ class Calc extends React.Component {
     return result;
   };
 
-  flip = () => {
-    let result = Number(this.state.currentVal) * -1;
-    return result;
-  };
+  //   flip = () => {
+  //     let result = Number(this.state.currentVal) * -1;
+  //     return result;
+  //   };
 
-  root = () => {
-    let result = Number(this.state.currentVal) * Number(this.state.currentVal);
-    return result;
-  };
+  //   root = () => {
+  //     let result = Number(this.state.currentVal) * Number(this.state.currentVal);
+  //     return result;
+  //   };
 
   // adds the chosen operation in the stack
   eval = e => {
@@ -192,7 +199,7 @@ class Calc extends React.Component {
   render() {
     let { result, display } = this.state;
 
-    const THEME = this.state.isDark ? dark_theme : light_theme;
+    const THEME = this.props.state.isDark ? dark_theme : light_theme;
 
     return (
       <>
@@ -216,10 +223,19 @@ class Calc extends React.Component {
         </div>
         <div>
           <button onClick={this.changeToScience}>Scientific</button>
+          <button onClick={this.darkMode}>Dark Mode</button>
+          <button onClick={this.lightMode}>Light Mode</button>
         </div>
       </>
     );
   }
 }
 
-export default Calc;
+const mapStateToProps = state => {
+  console.log(state);
+  return {
+    state
+  };
+};
+
+export default connect(mapStateToProps)(Calc);

@@ -1,4 +1,9 @@
 import React from "react";
+import light_theme from "../theme_confg/light_theme.js";
+import dark_theme from "../theme_confg/dark_theme.js";
+
+import { connect } from "react-redux";
+
 import "../App.css";
 
 class Buttons extends React.Component {
@@ -29,12 +34,16 @@ class Buttons extends React.Component {
   }
 
   render() {
+    const THEME = this.props.state.isDark ? dark_theme : light_theme;
+
     const { buttons, scnButtons } = this.state;
 
-    let displayBtns = this.props.isScientific ? buttons.concat(scnButtons) : buttons;
+    let displayBtns = this.props.isScientific
+      ? buttons.concat(scnButtons)
+      : buttons;
 
     return (
-      <div className="buttons-container">
+      <div className={"buttons-container " + THEME.btn_clr}r>
         {displayBtns.map((item, key) => {
           if (item === "Clear") {
             return (
@@ -137,4 +146,11 @@ class Buttons extends React.Component {
   }
 }
 
-export default Buttons;
+const mapStateToProps = state => {
+  console.log(state);
+  return {
+    state
+  };
+};
+
+export default connect(mapStateToProps)(Buttons);

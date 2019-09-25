@@ -1,29 +1,15 @@
 const initialState = {
-  input: "",
-  display: 0,
-  prevNumber: "",
-  currentNumber: "",
-  operator: "",
-  total: "" 
+  isDark: false
 };
 
 const calReducer = (state = initialState, action) => {
   switch (action.type) {
-    case "CLEAR":
-      return {
-        ...state,
-        input: "",
-        display: 0,
-        prevNumber: "",
-        currentNumber: "",
-        operator: "",
-        total: ""
-      };
-      case "ADDINPUT":
-          return{
-              ...state,
-              input: state.input + action.val
-          }
+    case "DARK_MODE":
+      return { ...state, isDark: true };
+    case "LIGHT_MODE":
+      return { ...state, isDark: false };
+    default:
+      return state;
   }
 };
 

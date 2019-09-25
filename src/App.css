@@ -42,3 +42,7 @@ body > #root > div {
 .bgc-dark {
   background-color: #000;
 }
+
+.btn-clr-dark{
+  background: #666
+}
